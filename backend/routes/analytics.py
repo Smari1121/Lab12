@@ -33,9 +33,9 @@ async def get_analytics():
     item_count = len(items)
     user_count = len(users)
     
-    item_name_lengths = np.array([len(item["names"]) for item in items]) if items else np.array([])
-    user_username_lengths = np.array([len(user["usernames"]) for user in users]) if users else np.array([])
-    
+    item_name_lengths = np.array([len(item["name"]) for item in items]) if items else np.array([])
+    user_username_lengths = np.array([len(user["username"]) for user in users]) if users else np.array([])
+   # names is corrected to name and usernames is corrected to username since model.py contain singular words in their keys    
     stats = {
         "item_count": item_count,
         "user_count": user_count,
