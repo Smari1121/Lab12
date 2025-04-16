@@ -64,9 +64,12 @@
 | 29  | Load_dotenv() missing in db.py                                          |  Arushi T             | Arushi T             |
 | 30  | Item changed to items in db.py                                         |   Arushi T            |  Arushi T            |
 | 31 | Added root route / in main.py  | Arushi T | Arushi T |
-| 32 | Inherited from base model in models.py | Arushi T |
+| 32 | Inherited from base model in models.py | Arushi T | Arushi T |
 | 33 | Int changed to str in models.py | Arushi T | Arushi T |
 | 34 | Picking random qs in quiz.py | Arushi T | Arushi T |
 | 35 | Using body to parse request body in quiz.py | Arushi T | Arushi T |
 | 36 | Change from get to post in quiz.py | Arushi T | Arushi T |
 | 37 | Added model.dump() instead of deprecated dict in users.py | Kesvhi | Kesvhi |
+
+
+https://github.com/Smari1121/Lab12/ - Github link
