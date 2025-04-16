@@ -12,7 +12,7 @@ async function loadAnalytics() {
   document.getElementById("maxUserName").textContent = data.stats.max_user_username_length;
   
   // FIX: Prepend baseURL to image path
-  document.getElementById("plot").src = baseURL + data.plot;  // <- only critical fix
+  document.getElementById("plot").src = `data:image/png;base64,${data.histogram_image_base64}`;  // <- only critical fix
 }
 
 loadAnalytics();
