@@ -9,7 +9,7 @@ app.include_router(items_router, prefix="/items")
 app.include_router(analytics_router)
 app.include_router(quiz_router)
 
-@app.get("/")                                                      #added a root route / for general welcome 
+@app.get("/")                                                      #added a root route / for general welcome -itstandon
 async def root():
     return {"message": "Hello from FastAPI 🚀"}
 
