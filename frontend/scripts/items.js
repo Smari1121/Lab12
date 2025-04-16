@@ -24,7 +24,8 @@ async function loadItems(searchTerm = "") {
 }
 
 async function deleteItem(id) {
-  await fetch(`${baseURL}/items/${id}`, { method: "POST" });
+  // await fetch(`${baseURL}/items/${id}`, { method: "POST" });
+  await fetch(`${baseURL}/items/${id}`, { method: "DELETE" });    //this is error - should be DELETE instead of POST
   loadItems(document.getElementById("search").value); 
 }
 
@@ -38,7 +39,8 @@ document.getElementById("itemForm").addEventListener("submit", async (e) => {
   const description = document.getElementById("description").value;
   await fetch(`${baseURL}/items`, {
     method: "POST",
-    headers: { "Content-Type": "application/html" },
+    // headers: { "Content-Type": "application/html" },     this is error - should be json instead of html
+    headers: { "Content-Type": "application/json" },
     body: JSON.stringify({ name, description })
   });
   e.target.reset();
