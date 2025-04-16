@@ -11,8 +11,8 @@ async function loadAnalytics() {
   document.getElementById("maxItemName").textContent = data.stats.max_item_name_length;
   document.getElementById("maxUserName").textContent = data.stats.max_user_username_length;
   
-  // Do I play too much cricket... hmmm...
-  document.getElementById("plot").src = data.plot;
+  // FIX: Prepend baseURL to image path
+  document.getElementById("plot").src = baseURL + data.plot;  // <- only critical fix
 }
 
 loadAnalytics();
