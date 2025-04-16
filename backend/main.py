@@ -2,6 +2,7 @@ from fastapi import FastAPI
 from routes.items import router as items_router
 from routes.analytics import router as analytics_router
 from routes.quiz import router as quiz_router
+from routes.users import router as users_router  #added this linee (no path onlyy T^T)
 
 app = FastAPI()
 
