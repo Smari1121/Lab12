@@ -1,6 +1,6 @@
 from pydantic import BaseModel
 
-class Item():
+class Item(BaseModel): #corrected the bug , inherited it from BaseModel -itstandon
     name: int
     description: str
 
