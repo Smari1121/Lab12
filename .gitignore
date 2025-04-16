@@ -1,0 +1,6 @@
+# Ignore .env file inside the backend folder -itstandon
+backend/.env
+
+# Other files and directories to ignore
+node_modules/
+*.log
