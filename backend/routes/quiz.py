@@ -1,4 +1,4 @@
-from fastapi import APIRouter
+from fastapi import APIRouter, Body
 import random
 
 router = APIRouter(tags=["quiz"])
@@ -48,8 +48,8 @@ async def get_question():
         "options": question["options"]
     }
 
-@router.get("/answer")
-async def submit_answer(data: dict):
+@router.post("/answer") #change from get to post -itstandon
+async def submit_answer(data: dict = Body(...)):  # Using Body to parse the request body
     question_id = data.get("id")
     answer = data.get("answer")
     score = data.get("score", 0)
