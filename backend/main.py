@@ -9,6 +9,7 @@ app = FastAPI()
 app.include_router(items_router, prefix="/items")
 app.include_router(analytics_router)
 app.include_router(quiz_router)
+app.include_router(users_router)  # ← AND THIS
 
 @app.get("/")                                                      #added a root route / for general welcome -itstandon
 async def root():
