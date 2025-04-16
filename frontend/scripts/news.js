@@ -17,8 +17,8 @@ async function loadNews(searchTerm = "", source = "all", reset = false) {
   loading.style.display = "block";
   
   try {
-    const selectedFeeds = source === "all" ? feeds : feeds.filter(f => f.name === source);
-    
+    // const selectedFeeds = source === "all" ? feeds : feeds.filter(f => f.name === source);
+    const selectedFeeds = feeds.filter(f => source === "all" || f.name === source);    // corrected
     for (const feed of selectedFeeds) {
       const res = await fetch(`${rssConverter}${encodeURIComponent(feed.url)}`);
       if (!res.ok) throw new Error(`Failed to fetch ${feed.name}`);
@@ -58,11 +58,35 @@ async function loadNews(searchTerm = "", source = "all", reset = false) {
     });
     
   } catch (err) {
-    list.innerHTML += `<p style="color: red;">Error: ${err.message}</p>`;
+    // list.innerHTML += `<p style="color: red;">Error: ${err.message}</p>`;
+    list.innerHTML = `<p style="color: red;">Error: ${err.message}</p>`;   // just equal, not +=
   } finally {
     loading.style.display = "none";
   }
 }
 
 
-loadNews();
+// loadNews();
+
+document.addEventListener("DOMContentLoaded", () => {
+  loadNews(); // Initial load
+
+  // Add listeners for search and source selection
+  document.getElementById("search").addEventListener("input", () => {
+    loadNews(
+      document.getElementById("search").value,
+      document.getElementById("source").value,
+      false
+    );
+  });
+
+  document.getElementById("source").addEventListener("change", () => {
+    loadNews(
+      document.getElementById("search").value,
+      document.getElementById("source").value,
+      true // Reset when source changes
+    );
+  });
+});
+
+// corrected

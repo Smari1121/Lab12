@@ -8,7 +8,7 @@ async def get_users_collection():
     from db import init_db
     return init_db()["users_collection"]
 
-@router.get("/")    # Changed from POST to GET-itstandon
+@router.get("/") #it should be get and not post, we can't have 2 posts buddy T^T
 async def get_users():
     collection = await get_users_collection()
     users = []
@@ -16,8 +16,8 @@ async def get_users():
         user["_id"] = str(user["_id"])
         users.append(user)
     return users
-
 # whats ur favorite genre of music ??? mine is EDM
+
 @router.post("/create")
 async def create_user(user: User):
     collection = await get_users_collection()
@@ -27,7 +27,7 @@ async def create_user(user: User):
 @router.delete("/{user_id}")
 async def delete_user(user_id: str):
     collection = await get_users_collection()
-    result = await collection.delete_one({"_id": ObjectId(user_id)})  # Changed from delete_all to delete_one with filter -itstandon
+    result = await collection.delete_one({"_id": ObjectId(user_id)}) # Changed from delete_all to delete_one with filter -itstandon
     if result.deleted_count:
         return {"status": "deleted"}
     raise HTTPException(status_code=404, detail="User not found")
