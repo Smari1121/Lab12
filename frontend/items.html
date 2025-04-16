@@ -7,28 +7,38 @@
 </head>
 <body>
   <nav>
-    <a href="index.html">Home</a>
-    <a href="items.html">Items</a>
-    <a href="profile.html">Profile</a>
-    <a href="analytics.html">Analytics</a>
-    <a href="news.html">News</a>
+    <ul>
+      <li><a href="index.html">Home</a></li>
+      <li><a href="items.html">Items</a></li>
+      <li><a href="profile.html">Profile</a></li>
+      <li><a href="analytics.html">Analytics</a></li>
+      <li><a href="news.html">News</a></li>
+    </ul>
   </nav>
-  <!-- fuck I think I deleted a container, god help me-->
 
-  <div class="container">
-    <h1>://</h1>
-    <h1>📦 Items </h1>
-    <p id="itemCount">Total items: 0</p>
-    <input type="text" id="search" placeholder="Search items..." />
-    <form id="itemForm">
-      <input type="text" id="itemName" placeholder="Item name" required />
-      <input type="text" id="itemDescription" placeholder="Description" required />
-      <button type="submit">Add Item</button>
-    </form>
-    <ul id="itemList"></ul>
-  </div>
+  <main>
+    <!-- Container for everything -->
+    <div id="container">
+      <!-- Item count display -->
+      <p id="itemCount">Total items: 0</p>
+
+      <!-- Search input -->
+      <input type="text" id="search" placeholder="Search items..." />
+
+      <!-- Form to add new item -->
+      <form id="itemForm">
+        <input type="text" id="name" placeholder="Item name" required />
+        <input type="text" id="description" placeholder="Description" required />
+        <button type="submit">Add Item</button>
+      </form>
+
+      <!-- List of items -->
+      <ul id="itemList"></ul>
+    </div>
+  </main>
 
   <script src="scripts/items.js"></script>
 </body>
 </html>
+
 
