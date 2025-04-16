@@ -4,7 +4,7 @@ class Item(BaseModel): #corrected the bug , inherited it from BaseModel -itstand
     name: str
     description: str
 
-class User(BaseModel):
+class User(BaseModel): 
     username: str
     bio: str
     
