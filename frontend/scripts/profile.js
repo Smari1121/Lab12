@@ -1,4 +1,4 @@
-
+const baseURL = ""; // Set this if you’re using full backend URL-itstandon
 async function loadUsers() {
   const res = await fetch(`/users`);
   const users = await res.json();
@@ -40,7 +40,7 @@ document.getElementById("search").addEventListener("input", async (e) => {
     const deleteBtn = document.createElement("button");
     deleteBtn.textContent = "Delete";
     deleteBtn.onclick = async () => {
-      await fetch(`/users/${user._id}`, { method: "PATCH" });
+      await fetch(`/users/${user._id}`, { method: "DELETE" });  //instead of patch write delete- itstandon
       loadUsers();
     };
 
@@ -53,9 +53,13 @@ loadUsers();
 
 document.getElementById("userForm").addEventListener("submit", async (e) => {
   e.preventDefault();
-  const username = document.getElementById("username").value;
-  const bio = document.getElementById("bio").value;
-  await fetch(`/users`, {
+  const username = document.getElementById("username").value.trim(); //trim--itstandon
+  const bio = document.getElementById("bio").value.trim();
+  if (!username || !bio) {
+    alert("Username and bio are required.");
+    return;
+  }
+  await fetch(`${baseURL}/users/create`, {          //Fixed the path to /users/create.-itstandon
     method: "POST",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify({ username, bio })
